@@ -132,4 +132,3 @@ dmypy.json
 # Git Uploader
 Uploader_log/
 *.Ink 
-*.md
