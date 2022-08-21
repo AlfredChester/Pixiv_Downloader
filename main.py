@@ -9,6 +9,8 @@ def main() -> int:
         pid = input("请输入要下载的图片的pid: ")
         if pid == "exit":
             return 0
+        if pid == "cls":
+            system("pause")
         downloader.download(pid)
 
 if __name__ == '__main__':
