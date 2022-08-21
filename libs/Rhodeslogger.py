@@ -28,7 +28,7 @@ def writeLog(data: Any, logType:str = "INFO") -> None:
             item = item.replace("\n", "")
             if (Configs.logConfigs.needFileOutPut):
                 logObject.write(
-                    getNowTime() + str(item) + '\n'
+                    getNowTime() + f'|{logType}\t|' + str(item) + '\n'
                 )
             if (Configs.logConfigs.needConsoleOutPut):
                 toUseFunc(str(item))
@@ -38,7 +38,7 @@ def writeLog(data: Any, logType:str = "INFO") -> None:
     if type(data) == str:
         data = data.replace("\n", "")
         if (Configs.logConfigs.needFileOutPut):
-            logObject.write(getNowTime() + data + '\n')
+            logObject.write(getNowTime() + f'|{logType}\t|' + data + '\n')
         if (Configs.logConfigs.needConsoleOutPut):
             toUseFunc(data)
         logObject.close()
