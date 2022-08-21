@@ -10,3 +10,7 @@ class Configs:
     class timeConfigs:
         timeFormat          = "%Y-%m-%d [%H:%M:%S] "
         timeZone            = "Asia/Shanghai"
+
+    class DownloadConfigs:
+        DownloadRoute  = "Downloads"
+        standard_Input = True
