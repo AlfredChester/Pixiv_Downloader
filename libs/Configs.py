@@ -12,5 +12,5 @@ class Configs:
         timeZone            = "Asia/Shanghai"
 
     class DownloadConfigs:
-        DownloadRoute  = "Downloads"
+        DownloadRoute  = r"X:\\good stuff\\Downloads"
         standard_Input = True
