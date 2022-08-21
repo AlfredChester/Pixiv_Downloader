@@ -1,8 +1,9 @@
 from libs.Downloader import *
 from libs.Rhodeslogger import writeLog
+from libs.Configs import Configs
 
 def main() -> int:
-    route = input("输入下载图片的路径: ")
+    route = Configs.DownloadConfigs.DownloadRoute
     downloader = Downloader(downloadRoute=route)
     while True:
         pid = input("请输入要下载的图片的pid: ")
