@@ -12,5 +12,5 @@ class Configs:
         timeZone            = "Asia/Shanghai"
 
     class DownloadConfigs:
-        DownloadRoute  = "Downloads"
+        DownloadRoute  = "lsp-frontent\\Downloads"
         standard_Input = True
