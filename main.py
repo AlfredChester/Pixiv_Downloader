@@ -10,7 +10,8 @@ def main() -> int:
         if pid == "exit":
             return 0
         if pid == "cls":
-            system("pause")
+            system("cls")
+            continue
         downloader.download(pid)
 
 if __name__ == '__main__':
