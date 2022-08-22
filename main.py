@@ -12,6 +12,8 @@ def main() -> int:
         if pid == "cls":
             system("cls")
             continue
+        if pid == "novel":
+            return -1
         downloader.download(pid)
 
 if __name__ == '__main__':
