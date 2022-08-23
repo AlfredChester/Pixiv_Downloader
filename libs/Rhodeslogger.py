@@ -22,6 +22,15 @@ def writeLog(data: Any, logType:str = "INFO") -> None:
         "SUCCESS":  logger.success,
         "TRACE":    logger.trace
     }
+    fileOutputTypes = {
+        "INFO":     "| INFO     |",
+        "DEBUG":    "| DEBUG    |",
+        "ERROR":    "| ERROR    |",
+        "CRITICAL": "| CRITICAL |",
+        "WARNING":  "| WARNING  |",
+        "SUCCESS":  "| SUCCESS  |",
+        "TRACE":    "| TRACE    |"
+    }
     toUseFunc  = funcMap[logType]
     if type(data) == list: 
         for item in data:
@@ -38,7 +47,7 @@ def writeLog(data: Any, logType:str = "INFO") -> None:
     if type(data) == str:
         data = data.replace("\n", "")
         if (Configs.logConfigs.needFileOutPut):
-            logObject.write(getNowTime() + f'|{logType}\t|' + data + '\n')
+            logObject.write(getNowTime() + fileOutputTypes[logType] + data + '\n')
         if (Configs.logConfigs.needConsoleOutPut):
             toUseFunc(data)
         logObject.close()
