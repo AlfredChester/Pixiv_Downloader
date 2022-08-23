@@ -16,6 +16,7 @@ def main() -> int:
             system("python Git_Uploader.py")
             continue
         if pid == "novel":
+            writeLog("Developing this Function!")
             return -1
         downloader.download(pid)
 
