@@ -4,7 +4,7 @@ class Configs:
         needConsoleOutPut   = True
         needFileOutPut      = True
         loglevel            = "DEBUG"
-        fileName            = "downloadProcess.log"
+        fileName            = "downloader.log"
         fileEncoding        = "utf-8"
 
     class timeConfigs:
