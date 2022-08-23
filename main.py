@@ -12,6 +12,9 @@ def main() -> int:
         if pid == "cls":
             system("cls")
             continue
+        if pid == "uploadGit":
+            system("python Git_Uploader.py")
+            continue
         if pid == "novel":
             return -1
         downloader.download(pid)
