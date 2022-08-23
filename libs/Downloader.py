@@ -30,7 +30,7 @@ class Downloader(object):
         writeLog(f'Download {pid}-singlePicture.jpg success')
 
     def download(self, pid):
-        system(f"cd {self.downloadRoute} & mkdir {pid}")
+        system(f"mkdir {self.downloadRoute} & cd {self.downloadRoute} & mkdir {pid}")
         cnt = 1
         while True:
             requireSleep = False
