@@ -23,13 +23,13 @@ def writeLog(data: Any, logType:str = "INFO") -> None:
         "TRACE":    logger.trace
     }
     fileOutputTypes = {
-        "INFO":     "| INFO     |",
-        "DEBUG":    "| DEBUG    |",
-        "ERROR":    "| ERROR    |",
-        "CRITICAL": "| CRITICAL |",
-        "WARNING":  "| WARNING  |",
-        "SUCCESS":  "| SUCCESS  |",
-        "TRACE":    "| TRACE    |"
+        "INFO":     "| INFO     | ",
+        "DEBUG":    "| DEBUG    | ",
+        "ERROR":    "| ERROR    | ",
+        "CRITICAL": "| CRITICAL | ",
+        "WARNING":  "| WARNING  | ",
+        "SUCCESS":  "| SUCCESS  | ",
+        "TRACE":    "| TRACE    | "
     }
     toUseFunc  = funcMap[logType]
     if type(data) == list: 
