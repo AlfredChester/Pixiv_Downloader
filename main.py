@@ -17,7 +17,7 @@ def main() -> int:
             continue
         if pid == "novel":
             writeLog("Developing this Function!")
-            return -1
+            return 0xBADBEEF
         downloader.download(pid)
 
 if __name__ == '__main__':
