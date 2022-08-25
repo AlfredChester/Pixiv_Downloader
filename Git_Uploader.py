@@ -58,6 +58,7 @@ class Main:
                 if not "renamed" in __ParseResult[0]:
                     _ret.append(__ParseResult[1])
                 else:
+                    # Find the new file name
                     _ret.append(__ParseResult[1].split(' ')[3])
         return _ret
 
