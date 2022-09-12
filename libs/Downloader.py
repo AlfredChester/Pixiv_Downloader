@@ -15,7 +15,7 @@ class Downloader(object):
         writeLog(f'DownloadRoute: {self.downloadRoute}')
 
     def singleDownload(self, pid):
-        requestURL = f'{self.source}/{pid}.jpg'
+        requestURL = f'{self.source}/{pid}.png'
         binaryPictureContent = get(requestURL)
         if str(binaryPictureContent) == '<Response [404]>':
             return
@@ -23,11 +23,11 @@ class Downloader(object):
             time.sleep(45)
             self.singleDownload(pid)
         file = open(
-            f'{self.downloadRoute}\\{pid}\\singlePicture.jpg', 'wb'
+            f'{self.downloadRoute}\\{pid}\\singlePicture.png', 'wb'
         )
         file.write(binaryPictureContent.content)
         file.close()
-        writeLog(f'Download {pid}-singlePicture.jpg success')
+        writeLog(f'Download {pid}-singlePicture.png success')
 
     def download(self, pid):
         system(f"mkdir {self.downloadRoute} & cd {self.downloadRoute} & mkdir {pid}")
@@ -35,12 +35,12 @@ class Downloader(object):
         while True:
             requireSleep = False
             try:
-                requestURL = f'{self.source}/{pid}-{cnt}.jpg'
+                requestURL = f'{self.source}/{pid}-{cnt}.png'
                 writeLog(f'Request URL: {requestURL}')
                 binaryPictureContent = get(requestURL)
                 if str(binaryPictureContent) == '<Response [404]>':
                     writeLog(
-                        f'Picture {pid}-{cnt}.jpg 404',
+                        f'Picture {pid}-{cnt}.png 404',
                           logType = "WARNING"
                     )
                     if cnt == 1:
@@ -50,18 +50,18 @@ class Downloader(object):
                     return
                 if str(binaryPictureContent) == '<Response [503]>':
                     writeLog(
-                        f'Picture {pid}-{cnt}.jpg 503, sleeping for 45 second',
+                        f'Picture {pid}-{cnt}.png 503, sleeping for 45 second',
                           logType = "WARNING"
                     )
                     requireSleep = True
 
                 if not requireSleep:
                     file = open(
-                        f'{self.downloadRoute}\\{pid}\\{cnt}.jpg', 'wb'
+                        f'{self.downloadRoute}\\{pid}\\{cnt}.png', 'wb'
                     )
                     file.write(binaryPictureContent.content)
                     file.close()
-                    writeLog(f'Download {pid}-{cnt}.jpg success')
+                    writeLog(f'Download {pid}-{cnt}.png success')
             
             except Exception as e:
                 writeLog(f'Download Ended, Error: {e}')
