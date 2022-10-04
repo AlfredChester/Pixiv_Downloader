@@ -5,10 +5,10 @@ from requests import get
 
 class Downloader(object):
     def __init__(self ,
-        rootPath: str       = "https://pixiv.re", 
+        rootUrl: str        = "https://pixiv.re", 
         downloadRoute: str  = "Downloads"
     ):
-        self.source = rootPath
+        self.source = rootUrl
         self.downloadRoute = downloadRoute
         writeLog('Picture Downloader init success')
         writeLog(f'Source: {self.source}')
