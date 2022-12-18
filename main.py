@@ -1,6 +1,7 @@
 from libs.Downloader import *
 from libs.Rhodeslogger import writeLog
 from libs.Configs import Configs
+from random import randint
 
 def main() -> int:
     route = Configs.DownloadConfigs.DownloadRoute
@@ -18,6 +19,9 @@ def main() -> int:
         if pid == "novel":
             writeLog("Developing this Function!")
             return 0xBADBEEF
+        if pid == "rand":
+            downloader.download(str(randint(70000000, 104000000)))
+            continue
         downloader.download(pid)
 
 if __name__ == '__main__':
