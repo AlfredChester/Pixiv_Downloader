@@ -23,14 +23,14 @@ class Downloader(object):
             time.sleep(45)
             self.singleDownload(pid)
         file = open(
-            f'{self.downloadRoute}\\{pid}\\singlePicture.png', 'wb'
+            f'{self.downloadRoute}/{pid}/singlePicture.png', 'wb'
         )
         file.write(binaryPictureContent.content)
         file.close()
         writeLog(f'Download {pid}-singlePicture.png success')
 
     def download(self, pid):
-        system(f"mkdir {self.downloadRoute} & cd {self.downloadRoute} & mkdir {pid}")
+        system(f"mkdir {self.downloadRoute}/{pid}")
         cnt = 1
         while True:
             requireSleep = False
@@ -57,7 +57,7 @@ class Downloader(object):
 
                 if not requireSleep:
                     file = open(
-                        f'{self.downloadRoute}\\{pid}\\{cnt}.png', 'wb'
+                        f'{self.downloadRoute}/{pid}/{cnt}.png', 'wb'
                     )
                     file.write(binaryPictureContent.content)
                     file.close()
