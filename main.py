@@ -3,6 +3,13 @@ from libs.Rhodeslogger import writeLog
 from libs.Configs import Configs
 from random import randint
 
+def isInt(val) -> bool:
+    try:
+        v = int(val)
+        return True
+    except Exception:
+        return False
+
 def main() -> int:
     route = Configs.DownloadConfigs.DownloadRoute
     downloader = Downloader(downloadRoute=route)
@@ -22,7 +29,10 @@ def main() -> int:
         if pid == "rand":
             downloader.download(str(randint(70000000, 104000000)))
             continue
-        downloader.download(pid)
+        if isInt(pid):
+            downloader.download(pid)
+        else:
+            writeLog("Invalid Input", "ERROR")
 
 if __name__ == '__main__':
     exitId = main()
