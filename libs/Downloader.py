@@ -18,6 +18,8 @@ class Downloader(object):
         requestURL = f'{self.source}/{pid}.png'
         binaryPictureContent = get(requestURL)
         if str(binaryPictureContent) == '<Response [404]>':
+            # TODO Remove directory
+            writeLog('Single Picture Download returned 404, this picture may be deleted or don\'t even exist', 'ERROR')
             return
         if str(binaryPictureContent) == '<Response [503]>':
             time.sleep(45)
