@@ -8,7 +8,7 @@ def getNowTime() -> str:
         Configs.timeConfigs.timeFormat, time.localtime()
     )
 
-def writeLog(data: Any, logType:str = "INFO") -> None:
+def writeLog(data: Any, logType: str = "INFO") -> None:
     logObject = open(
         Configs.logConfigs.fileName, "a" ,
         encoding = Configs.logConfigs.fileEncoding
