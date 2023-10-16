@@ -3,11 +3,12 @@ import time
 from libs.Rhodeslogger import writeLog
 from requests import get
 
+
 class Downloader(object):
-    def __init__(self ,
-        rootUrl: str        = "https://pixiv.re", 
-        downloadRoute: str  = "Downloads"
-    ):
+    def __init__(self,
+                 rootUrl: str = "https://pixiv.re",
+                 downloadRoute: str = "Downloads"
+                 ):
         self.source = rootUrl
         self.downloadRoute = downloadRoute
         writeLog('Picture Downloader init success')
@@ -19,7 +20,8 @@ class Downloader(object):
         binaryPictureContent = get(requestURL)
         if str(binaryPictureContent) == '<Response [404]>':
             # TODO Remove directory
-            writeLog('Single Picture Download returned 404, this picture may be deleted or don\'t even exist', 'ERROR')
+            writeLog(
+                'Single Picture Download returned 404, this picture may be deleted or don\'t even exist', 'ERROR')
             return
         if str(binaryPictureContent) == '<Response [503]>':
             time.sleep(45)
@@ -43,7 +45,7 @@ class Downloader(object):
                 if str(binaryPictureContent) == '<Response [404]>':
                     writeLog(
                         f'Picture {pid}-{cnt}.png 404',
-                          logType = "WARNING"
+                        logType="WARNING"
                     )
                     if cnt == 1:
                         self.singleDownload(pid)
@@ -53,7 +55,7 @@ class Downloader(object):
                 if str(binaryPictureContent) == '<Response [503]>':
                     writeLog(
                         f'Picture {pid}-{cnt}.png 503, sleeping for 45 second',
-                          logType = "WARNING"
+                        logType="WARNING"
                     )
                     requireSleep = True
 
@@ -64,9 +66,9 @@ class Downloader(object):
                     file.write(binaryPictureContent.content)
                     file.close()
                     writeLog(f'Download {pid}-{cnt}.png success')
-            
+
             except Exception as e:
-                writeLog(f'Download Ended, Error: {e}')
+                writeLog(f'Download Ended, Error: {e}', logType="ERROR")
                 break
 
             if requireSleep:
